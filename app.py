@@ -1,11 +1,14 @@
 from google import genai
 from google.genai import types
-import os
-from dotenv import load_dotenv
+import streamlit as st
 
-load_dotenv()
-
-client = genai.Client(api_key=os.getenv('KEY'))
+try:
+    API_KEY = st.secrets["GOOGLE_API_KEY"]
+except FileNotFoundError:
+    # Error handling jika file secrets belum dibuat
+    st.error("API Key tidak ditemukan! Pastikan sudah setting secrets.")
+    st.stop()
+client = genai.Client(api_key=API_KEY)
 
 intstruction = """
 Kamu adalah asisten penerjemah dari berbagai bahasa ke bahasa Palembang. Tugasmu adalah mengubah input teks
