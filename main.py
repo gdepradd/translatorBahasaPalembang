@@ -14,7 +14,7 @@ if st.button("Terjemahkan"):
     else:
         with st.spinner("Bentar lor..."):
             # --- MEMANGGIL FUNGSI DARI FILE SEBELAH ---
-            hasil = app.get_palembang_translation(text_input)
+            hasil = app.chat(text_input)
             
             # Cek apakah hasil balikan berupa error atau bukan
             if "Error:" in hasil:

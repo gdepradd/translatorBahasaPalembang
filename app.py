@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-os.getenv()
+
 client = genai.Client(api_key=os.getenv('KEY'))
 
 intstruction = """
